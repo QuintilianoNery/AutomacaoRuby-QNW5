@@ -40,3 +40,8 @@ Email inválido
 Dado que acesso a página de cadastro
 Quando submeto o meu cadastro com o email inválido
 Então devo ver Oops! Informe seu email válido
+
+E-mail já cadastrado 
+Dado que acesso a página de cadastro
+Quando submeto o meu cadastro com email, senha e confirmação da senha
+Então devo ver Oops! Email já cadastrad.
