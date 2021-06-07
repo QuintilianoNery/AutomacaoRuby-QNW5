@@ -9,7 +9,7 @@ Funcionalidade: Cadastro de usuários
 Cenario: Cadastro
     Dado que acesso a página de cadastro
     Quando submeto o meu cadastro com:
-            |email|2@2.com|
+            |email|3@2.com|
             |senha|123456|
             |senha_confirma|123456|
     Então devo ser redirecionado para a área logada
