@@ -14,6 +14,7 @@ Cenario: Cadastro
             |senha_confirma|123456|
     Então devo ser redirecionado para a área logada
 
+@temp
 Cenario: Email não informado
     Dado que acesso a página de cadastro
     Quando submeto o meu cadastro sem o email
