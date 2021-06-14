@@ -14,33 +14,32 @@ Cenario: Cadastro
             |senha_confirma|123456|
     Então devo ser redirecionado para a área logada
 
-@email_Invalido
+@email_invalido
 Cenario: Email não informado
     Dado que acesso a página de cadastro
     Quando submeto o meu cadastro sem o email
     Então devo ver Oops! Informe seu email
 
+@senha_invalida
 Cenario: Senha não informada
     Dado que acesso a página de cadastro
     Quando submeto o meu cadastro sem a senha
     Então devo ver Oops! Informe sua senha
 
+@senha_divergente
 Cenario: Senha divergente
     Dado que acesso a página de cadastro
     Quando submeto meu cadastro com senha divergente
     Então devo ver Opps! Senhas não são iguais
 
+@nenhum_campo_preenchido
 Cenario: Nenhum campo preenchido
     Dado que acesso a página de cadastro
     Quando submeto meu cadastro sem preencher os campos
     Então devo ver Opps! Informe seu email e sua senha
 
-Cenario: Email inválido
-    Dado que acesso a página de cadastro
-    Quando submeto o meu cadastro com o email inválido
-    Então devo ver Oops! Informe seu email válido
-
+@email_ja_cadastrado
 Cenario: E-mail já cadastrado 
     Dado que acesso a página de cadastro
     Quando submeto o meu cadastro com email, senha e confirmação da senha
-    Então devo ver Oops! Email já cadastrad.
+    Então devo ver Oops! Email já cadastrado
