@@ -15,49 +15,19 @@ Cenario: Cadastro
         |senha_confirma|123456 |
     Então devo ser redirecionado para a área logada
 
-@email_não_informado
-Cenario: Email não informado
+#place holder do cucumber <> que subistitui o valor pelo valor da tabela
+Esquema do Cenário: Tentativa de cadastro
     Dado que acesso a página de cadastro:
         Quando submeto o meu cadastro com:
-        |email         |       |
-        |senha         |123456 |
-        |senha_confirma|123456 |
-    Então devo ver a mensagem "Oops! Informe seu email."
-    
-@senha_invalida
-Cenario: Senha não informada
-    Dado que acesso a página de cadastro:
-    Quando submeto o meu cadastro com:
-        |email         |3@3.com|
-        |senha         |       |
-        |senha_confirma|       |
-    Então devo ver a mensagem "Oops! Informe sua senha."
+        |email         | <email>          |
+        |senha         | <senha>          |
+        |senha_confirma| <senha_confirma> |
+    Então devo ver a mensagem "<menssagem_saida>"
 
-@senha_divergente
-Cenario: Senha divergente
-    Dado que acesso a página de cadastro:
-    Quando submeto o meu cadastro com:
-        |email         |3@3.com|
-        |senha         |123456 |
-        |senha_confirma|654321 |
-    Então devo ver a mensagem "Oops! Senhas não são iguais."
-
-@nenhum_campo_preenchido
-Cenario: Nenhum campo preenchido
-    Dado que acesso a página de cadastro:
-    Quando submeto o meu cadastro com:
-        |email         |       |
-        |senha         |       |
-        |senha_confirma|       |
-    Então devo ver a mensagem "Oops! Informe seu email e sua senha."
-
-
-#Tentar fazer com que esse cenário rode sem ter seu e-mail apagado
-@email_ja_cadastrado
-Cenario: E-mail já cadastrado 
-    Dado que acesso a página de cadastro:
-    Quando submeto o meu cadastro com:
-        |email         |1@2.com.br|
-        |senha         |123456    |
-        |senha_confirma|123456    |
-    Então devo ver a mensagem "Oops! Email já cadastrado."
+    Exemplos:
+    |email  | senha | senha_confirma| menssagem_saida                    |
+    |       |1234565| 1234565       |Oops! Informe seu email.            |
+    |3@2.com|       |               |Oops! Informe sua senha.            |
+    |3@2.com|123456 |1234567        |Oops! Senhas não são iguais.        |
+    |       |       |               |Oops! Informe seu email e sua senha.|
+   #|1@2.com|123456 |123456         |Oops! Email já cadastrado.          |
