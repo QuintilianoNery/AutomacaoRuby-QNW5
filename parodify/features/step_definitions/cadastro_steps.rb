@@ -1,5 +1,5 @@
 #@happy
-Dado('que acesso a página de cadastro') do       
+Dado('que acesso a página de cadastro:') do       
     visit "http://parodify.qaninja.com.br"
     click_on "EXPERIMENTE AGORA"
 end                                                                           
@@ -32,85 +32,8 @@ end
     expect(page).to have_css '.dashboard'
 end                                                                           
 
-
-#@email_invalido
-Quando('submeto o meu cadastro sem o email') do
-    find("input[id='user_password']").set "123456"
-    find("input[id='user_password_confirmation']").set "123456"
-    
-    click_on "Cadastrar"
-end
-
-Então('devo ver Oops! Informe seu email') do
+#Aproveitamento do código para ser usado em todos os cenários
+Então('devo ver a mensagem {string}') do |expect_message|
   alert = find(".message p")
-  expect(alert.text).to eql 'Oops! Informe seu email.'
-end
-
-#@senha_invalida
-Quando('submeto o meu cadastro sem a senha') do
-
-  find("input[id='user_email']").set "q@q.com"
-  #find("input[id='user_password']").set user[:senha]
-  find("input[id='user_password_confirmation']").set "123456"
-
-  click_on "Cadastrar"
-
-end
-
-Então('devo ver Oops! Informe sua senha') do
-
-  alert = find(".message p")
-  expect(alert.text).to eql 'Oops! Informe sua senha.'
-
-end
-
-#@senha_divergente
-Quando('submeto meu cadastro com senha divergente') do   
-  find("input[id='user_email']").set "3@2.com"
-  find("input[id='user_password']").set "123456"
-  find("input[id='user_password_confirmation']").set "654321"
-
-  click_on "Cadastrar"
-end                                                                          
-                                                                             
-Então('devo ver Opps! Senhas não são iguais') do   
-
-  alert = find(".message p")
-  expect(alert.text).to eql 'Oops! Senhas não são iguais.'
-  
-end                                                                          
-
-#@nenhum_campo_preenchido
-Quando('submeto meu cadastro sem preencher os campos') do                       
-
-  find("input[id='user_email']").set ""
-  find("input[id='user_password']").set ""
-  find("input[id='user_password_confirmation']").set ""
-
-  click_on "Cadastrar"
-
-end                                                                             
-                                                                                
-Então('devo ver Opps! Informe seu email e sua senha') do                        
-
-  alert = find(".message p")
-  expect(alert.text).to eql 'Oops! Informe seu email e sua senha.'
-
-end                                                                             
-
-#@email_ja_cadastrado
-#teria que aprender fazer um método para cadastrar e garantir
-#que já existia a conta, nesse caso vou manter dessa forma mesmo 
-Quando('submeto o meu cadastro com email, senha e confirmação da senha') do
-
-    find("input[id='user_email']").set '1@2.com.br'
-    find("input[id='user_password']").set '123456'
-    find("input[id='user_password_confirmation']").set '123456'
-
-  click_on "Cadastrar"
-end
-
-Então('devo ver Oops! Email já cadastrado') do
-  alert = find(".message p")
-  expect(alert.text).to eql 'Oops! Email já cadastrado.'
+  expect(alert.text).to eql expect_message
 end
