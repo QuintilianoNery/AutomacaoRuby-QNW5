@@ -6,7 +6,7 @@ Funcionalidade: Cadastro de usuários
     Para que eu possa ouvir minhas músicas favoritas
 
 
-    @happy
+    @cadastro
     Cenario: Cadastro
         Dado que acesso a página de cadastro:
         Quando submeto o meu cadastro com:
@@ -30,4 +30,10 @@ Funcionalidade: Cadastro de usuários
             | 3@2.com |         |                | Oops! Informe sua senha.             |
             | 3@2.com | 123456  | 1234567        | Oops! Senhas não são iguais.         |
             |         |         |                | Oops! Informe seu email e sua senha. |
-#|1@2.com|123456 |123456         |Oops! Email já cadastrado.          |
+    #| 2@2.com | 123456  | 123456         | Oops! Email já cadastrado.           |
+
+    @validacao_campo_email
+    Cenario: Validação do campo email
+
+        Quando acesso a página de cadastro
+        Então deve exibir o seguinte css "input[type=email]" na página
