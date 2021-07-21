@@ -1,5 +1,5 @@
-<h1 align="center">Projeto: AutomacaoRuby-QNW5 </h1>
-<h2 align="center">Automação com Ruby e Cucumber, QNW #5 </h2>
+<h1 align="center">Projeto: QNW #5 </h1>
+<h2 align="center">Automação com Ruby e Cucumber</h2>
 
 <p align="center"><img src="parodifyQNW5.png" width="100%"/></p>
 
@@ -37,10 +37,16 @@ gem "httparty", "0.18.1"
 gem "rufo", "0.13.0"
 ```
 
+- Para atualizar as novas Gems
+
+```shell
+bundler
+```
+
 OBS: - Para a instalação das gems basta executar os seguintes comandos em seu terminal/cmd:
 
 ### Comandos para iniciar os testes com Ruby :gear:
 
 ```shell
-   Cucumber
+Cucumber
 ```
